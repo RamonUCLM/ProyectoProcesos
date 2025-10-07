@@ -6,6 +6,9 @@ function Sistema(){
     this.obtenerUsuarios=function(){
         return this.usuarios;
     }
+    this.usuarioActivo=function(nick){
+        return Object.hasOwn(this.usuarios,nick);
+    }
 }
 
 function Usuario(nick){
