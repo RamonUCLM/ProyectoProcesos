@@ -1,0 +1,23 @@
+{
+  "name": "proyectoprocesos",
+  "version": "1.0.0",
+  "description": "Repositorio para el proyecto de Procesos de la ingeniería del software",
+  "main": "index.js",
+  "scripts": {
+    "testW": "node_modules\\.bin\\jasmine-node servidor",
+    "test": "./node_modules/.bin/jasmine-node servidor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RamonUCLM/ProyectoProcesos.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RamonUCLM/ProyectoProcesos/issues"
+  },
+  "homepage": "https://github.com/RamonUCLM/ProyectoProcesos#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
