@@ -9,6 +9,9 @@ function Sistema(){
     this.usuarioActivo=function(nick){
         return Object.hasOwn(this.usuarios,nick);
     }
+    this.eliminarUsuario=function(nick){
+        delete this.usuarios[nick]
+    }
 }
 
 function Usuario(nick){
