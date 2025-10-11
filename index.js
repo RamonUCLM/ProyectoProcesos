@@ -26,6 +26,12 @@ app.get("/obtenerUsuarios", function(request,response){
     response.send(res);
 });
 
+app.get("/usuarioActivo/:nick", function(request,response){
+    let nick = request.params.nick;
+    let res = sistema.usuarioActivo(nick);
+    response.send(res);
+});
+
 app.listen(PORT, () => {
     console.log(`App está escuchando en el puerto ${PORT}`);
     console.log('Crtl+C para salir');
