@@ -15,7 +15,14 @@ function Sistema(){
         return this.usuarios;
     }
     this.usuarioActivo=function(nick){
-        return Object.hasOwn(this.usuarios,nick);
+        let res = {"res":false};
+        if (this.usuarios[nick]){
+            res.res=true;
+        }
+        else{
+            console.log("el nick " + nick + " no existe");
+        }
+        return res;
     }
     this.eliminarUsuario=function(nick){
         delete this.usuarios[nick]
