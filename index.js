@@ -37,6 +37,12 @@ app.get("/numeroUsuarios", function(request,response){
     response.send(res);
 });
 
+app.get("/eliminarUsuario/:nick", function(request,response){
+    let nick = request.params.nick;
+    let res = sistema.eliminarUsuario(nick);
+    response.send(res);
+});
+
 app.listen(PORT, () => {
     console.log(`App está escuchando en el puerto ${PORT}`);
     console.log('Crtl+C para salir');
