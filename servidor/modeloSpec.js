@@ -10,15 +10,18 @@ describe('El sistema...', function(){
     expect(sistema.numeroUsuarios()).toEqual(0);
   });
   it('Agregar usuario', function(){
-    expect(sistema.agregarUsuario("Pepe")).toEqual(undefined);
+    let result = {nick:"Pepe"};
+    expect(sistema.agregarUsuario("Pepe")).toEqual(result);
   });
   it('obtenerUsuarios', function(){
     expect(sistema.obtenerUsuarios()).toEqual({});
   })
   it('usuarioActivo', function(){
-    expect(sistema.usuarioActivo("Pepe")).toEqual(false);
+    let result = {"res":false};
+    expect(sistema.usuarioActivo("Pepe")).toEqual(result);
   })
   it('eliminarUsuario', function(){
-    expect(sistema.eliminarUsuario("Pepe")).toEqual(undefined);
+    let result = {"Pepe":true}
+    expect(sistema.eliminarUsuario("Pepe")).toEqual(result);
   })
 })
