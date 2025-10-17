@@ -30,4 +30,19 @@ function ClienteRest(){
 
         });
     }
+    this.obtenerUsuarios=function(funcion){
+        $.ajax({
+            type:'GET',
+            url:'/obtenerUsuarios',
+            success:function(data){
+                console.log("Lista de usuarios obtenida" + JSON.stringify(data));
+            },
+            error:function(xhr, textStatus, errorThrown){
+                console.log("Status: " + textStatus);
+                console.log("Error: " + errorThrown);
+            },
+            contentType:'application/json'
+
+        });
+    }
 }
