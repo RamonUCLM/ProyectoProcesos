@@ -45,4 +45,19 @@ function ClienteRest(){
 
         });
     }
+    this.numeroUsuarios=function(funcion){
+        $.ajax({
+            type:'GET',
+            url:'/numeroUsuarios',
+            success:function(data){
+                console.log("Hay registrados " + JSON.stringify(data) + " usuarios en el sistema");
+            },
+            error:function(xhr, textStatus, errorThrown){
+                console.log("Status: " + textStatus);
+                console.log("Error: " + errorThrown);
+            },
+            contentType:'application/json'
+
+        });
+    }
 }
