@@ -80,4 +80,24 @@ function ClienteRest(){
 
         });
     }
+    this.eliminarUsuario=function(nick){
+        $.ajax({
+            type:'GET',
+            url:'/eliminarUsuario/'+nick,
+            success:function(data){
+                if (data[nick]==true){
+                    console.log("El usuario "+nick+" se ha eliminado correctamente");
+                }
+                else{
+                    console.log("El usuario "+nick+" no se ha podido eliminar");
+                }
+            },
+            error:function(xhr, textStatus, errorThrown){
+                console.log("Status: " + textStatus);
+                console.log("Error: " + errorThrown);
+            },
+            contentType:'application/json'
+
+        });
+    }
 }
