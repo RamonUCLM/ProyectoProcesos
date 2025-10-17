@@ -30,7 +30,7 @@ function ClienteRest(){
 
         });
     }
-    this.obtenerUsuarios=function(funcion){
+    this.obtenerUsuarios=function(){
         $.ajax({
             type:'GET',
             url:'/obtenerUsuarios',
@@ -45,12 +45,32 @@ function ClienteRest(){
 
         });
     }
-    this.numeroUsuarios=function(funcion){
+    this.numeroUsuarios=function(){
         $.ajax({
             type:'GET',
             url:'/numeroUsuarios',
             success:function(data){
                 console.log("Hay registrados " + JSON.stringify(data) + " usuarios en el sistema");
+            },
+            error:function(xhr, textStatus, errorThrown){
+                console.log("Status: " + textStatus);
+                console.log("Error: " + errorThrown);
+            },
+            contentType:'application/json'
+
+        });
+    }
+    this.usuarioActivo=function(nick){
+        $.ajax({
+            type:'GET',
+            url:'/usuarioActivo/'+nick,
+            success:function(data){
+                if (data.res==true){
+                    console.log("El usuario "+nick+" está activo");
+                }
+                else{
+                    console.log("El usuario "+nick+" no está activo");
+                }
             },
             error:function(xhr, textStatus, errorThrown){
                 console.log("Status: " + textStatus);
