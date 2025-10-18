@@ -62,16 +62,18 @@ function ClienteRest(){
 
         });
     }
-    this.usuarioActivo=function(nick){
+    this.usuarioActivo=function(nick, callback){
         $.ajax({
             type:'GET',
             url:'/usuarioActivo/'+nick,
             success:function(data){
                 if (data.res==true){
                     console.log("El usuario "+nick+" está activo");
+                    callback(data);
                 }
                 else{
                     console.log("El usuario "+nick+" no está activo");
+                    callback(data);
                 }
             },
             error:function(xhr, textStatus, errorThrown){

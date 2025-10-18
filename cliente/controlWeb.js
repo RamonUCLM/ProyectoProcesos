@@ -56,4 +56,20 @@ function ControlWeb() {
             $("#auForm").html(cadena);
         });
     }
+
+    this.mostrarUsuarioActivo = function() {
+
+        let cadena = '<div id="uaFormdiv" class="form-group">'
+        cadena += '<label for="usr">Name:</label>'
+        cadena += '<input type="text" class="form-control" id="nick">'
+        cadena += '<button id="uaB" type="submit" class="btn btn-primary mt-3">Submit</button>'
+        cadena += '</div>'
+        cadena += '<script>'
+        cadena += '$("#uaB").on("click",function(){'
+        cadena += 'let nick=$("#nick").val();'
+        cadena += 'rest.usuarioActivo(nick,function(res){$("#auForm").html(`<div><p>el usuario ` + nick + ` existe? </p>` + JSON.stringify(res.res) + `</div>`);});'
+        cadena += '});'
+        cadena += '</script>'
+        $("#auForm").html(cadena);
+    }
 }
