@@ -15,6 +15,13 @@ app.get("/", function(request,response){
     response.send(contenido);
 });
 
+// Cuando el navegador pida la imagen Logo.jpg el servidor le sirve la imagen
+app.get("/Logo.png", function(request,response){
+    var contenido = fs.readFileSync(__dirname+"/servidor/imagenes/Logo.png");
+    response.setHeader("Content-type","image/png");
+    response.send(contenido);
+});
+
 app.get("/agregarUsuario/:nick", function(request,response){
     let nick = request.params.nick;
     let res = sistema.agregarUsuario(nick);

@@ -9,7 +9,7 @@ function ControlWeb() {
         let cadena = '<div id="auFormdiv" class="form-group">'
         cadena += '<label for="usr">Name:</label>'
         cadena += '<input type="text" class="form-control" id="nick">'
-        cadena += '<button id="auB" type="submit" class="btn btn-primary">Submit</button>'
+        cadena += '<button id="auB" type="submit" class="btn btn-primary mt-3">Submit</button>'
         cadena += '</div>'
         cadena += '<script>'
         cadena += '$("#auB").on("click",function(){'
