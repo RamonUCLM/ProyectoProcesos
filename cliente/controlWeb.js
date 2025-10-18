@@ -6,19 +6,17 @@ function ControlWeb() {
         
 
         //inyección de código html para el formulario de usuario
-        let cadena = '<div id="auFormdiv" class="form-group">'
+        let cadena = '<div id="Formdiv" class="form-group">'
         cadena += '<label for="usr">Name:</label>'
         cadena += '<input type="text" class="form-control" id="nick">'
         cadena += '<button id="auB" type="submit" class="btn btn-primary mt-3">Submit</button>'
         cadena += '</div>'
-        cadena += '<script>'
-        cadena += '$("#auB").on("click",function(){'
-        cadena += 'let nick=$("#nick").val();'
-        cadena += 'rest.agregarUsuario(nick);'
-        cadena += '$("#auFormdiv").remove();'
-        cadena += '});'
-        cadena += '</script>'
-        $("#auForm").html(cadena);
+        $("#auB").on("click",function(){
+            let nick=$("#nick").val();
+            rest.agregarUsuario(nick);
+            $("#Formdiv").remove();
+        });
+        $("#Form").html(cadena);
     }
 
     this.mostrarObtenerUsuarios = function() {
@@ -29,12 +27,10 @@ function ControlWeb() {
         let cadena = '<div id="uFormdiv" class="form-group">'
         cadena += '<button id="uB" type="submit" class="btn btn-primary mt-3">Buscar</button>'
         cadena += '</div>'
-        cadena += '<script>'
-        cadena += '$("#uB").on("click",function(){'
-        cadena += 'rest.obtenerUsuarios(function(users){cw.mostrarUsuarios(users);});'
-        cadena += '});'
-        cadena += '</script>'
-        $("#auForm").html(cadena);
+        c$("#uB").on("click",function(){
+            rest.obtenerUsuarios(function(users){cw.mostrarUsuarios(users);});
+        });
+        $("#Form").html(cadena);
     }
 
     this.mostrarUsuarios = function(users) {
@@ -47,13 +43,13 @@ function ControlWeb() {
             }
         }
         cadena += '</div>';
-        $("#auForm").html(cadena);
+        $("#Form").html(cadena);
     }
 
     this.numeroUsuarios = function() {
         rest.numeroUsuarios(function(num) {
             let cadena = `<div><p>Número de usuarios: </p>` + JSON.stringify(num) + `</div>`;
-            $("#auForm").html(cadena);
+            $("#Form").html(cadena);
         });
     }
 
@@ -64,15 +60,13 @@ function ControlWeb() {
         cadena += '<input type="text" class="form-control" id="nick">'
         cadena += '<button id="uaB" type="submit" class="btn btn-primary mt-3">Submit</button>'
         cadena += '</div>'
-        cadena += '<script>'
-        cadena += '$("#uaB").on("click",function(){'
-        cadena += 'let nick=$("#nick").val();'
-        cadena += 'rest.usuarioActivo(nick,function(res){'
-        cadena += '$("#auForm").html(`<div><p>el usuario ` + nick + ` existe? </p>` + JSON.stringify(res.res) + `</div>`);'
-        cadena += '});'
-        cadena += '});'
-        cadena += '</script>'
-        $("#auForm").html(cadena);
+        $("#uaB").on("click",function(){
+            let nick=$("#nick").val();
+            rest.usuarioActivo(nick,function(res){
+                $("#Form").html(`<div><p>el usuario ` + nick + ` existe? </p>` + JSON.stringify(res.res) + `</div>`);
+            });
+        });
+        $("#Form").html(cadena);
     }
 
     this.mostrarEliminarUsuario = function() {
@@ -83,13 +77,12 @@ function ControlWeb() {
         cadena += '<button id="euB" type="submit" class="btn btn-primary mt-3">Submit</button>'
         cadena += '</div>'
         cadena += '<script>'
-        cadena += '$("#euB").on("click",function(){'
-        cadena += 'let nick=$("#nick").val();'
-        cadena += 'rest.eliminarUsuario(nick,function(res){'
-        cadena += '$("#auForm").html(`<div><p>el usuario ` + nick + ` ha sido eliminado? </p>` + JSON.stringify(res[nick]) + `</div>`);'
-        cadena += '});'
-        cadena += '});'
-        cadena += '</script>'
-        $("#auForm").html(cadena);
+        c$("#euB").on("click",function(){
+            let nick=$("#nick").val();
+            rest.eliminarUsuario(nick,function(res){
+                $("#Form").html(`<div><p>el usuario ` + nick + ` ha sido eliminado? </p>` + JSON.stringify(res[nick]) + `</div>`);
+            });
+        });
+        $("#Form").html(cadena);
     }
 }
