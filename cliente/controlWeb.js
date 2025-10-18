@@ -49,4 +49,11 @@ function ControlWeb() {
         cadena += '</div>';
         $("#auForm").html(cadena);
     }
+
+    this.numeroUsuarios = function() {
+        rest.numeroUsuarios(function(num) {
+            let cadena = `<div><p>Número de usuarios: </p>` + JSON.stringify(num) + `</div>`;
+            $("#auForm").html(cadena);
+        });
+    }
 }

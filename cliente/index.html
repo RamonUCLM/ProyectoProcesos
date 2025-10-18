@@ -32,6 +32,9 @@
                     <button id="navU" type="button" class="btn text-white">Usuarios</button>
                 </li>
                 <li class="nav-item">
+                    <button id="navUA" type="button" class="btn text-white">Usuarios activos</button>
+                </li>
+                <li class="nav-item">
                     <button id="navBU" type="button" class="btn text-white">Buscar usuario</button>
                 </li>
                 <li class="nav-item">
@@ -59,6 +62,9 @@
             });
             $("#navU").on("click",function(){
                 cw.mostrarObtenerUsuarios();
+            });
+            $("#navUA").on("click",function(){
+                cw.numeroUsuarios();
             });
         </script>
     </body>

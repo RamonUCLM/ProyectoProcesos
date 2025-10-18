@@ -46,12 +46,13 @@ function ClienteRest(){
 
         });
     }
-    this.numeroUsuarios=function(){
+    this.numeroUsuarios=function(callback){
         $.ajax({
             type:'GET',
             url:'/numeroUsuarios',
             success:function(data){
                 console.log("Hay registrados " + JSON.stringify(data) + " usuarios en el sistema");
+                callback(data);
             },
             error:function(xhr, textStatus, errorThrown){
                 console.log("Status: " + textStatus);
