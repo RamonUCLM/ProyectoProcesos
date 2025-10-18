@@ -67,7 +67,27 @@ function ControlWeb() {
         cadena += '<script>'
         cadena += '$("#uaB").on("click",function(){'
         cadena += 'let nick=$("#nick").val();'
-        cadena += 'rest.usuarioActivo(nick,function(res){$("#auForm").html(`<div><p>el usuario ` + nick + ` existe? </p>` + JSON.stringify(res.res) + `</div>`);});'
+        cadena += 'rest.usuarioActivo(nick,function(res){'
+        cadena += '$("#auForm").html(`<div><p>el usuario ` + nick + ` existe? </p>` + JSON.stringify(res.res) + `</div>`);'
+        cadena += '});'
+        cadena += '});'
+        cadena += '</script>'
+        $("#auForm").html(cadena);
+    }
+
+    this.mostrarEliminarUsuario = function() {
+
+        let cadena = '<div id="euFormdiv" class="form-group">'
+        cadena += '<label for="usr">Name:</label>'
+        cadena += '<input type="text" class="form-control" id="nick">'
+        cadena += '<button id="euB" type="submit" class="btn btn-primary mt-3">Submit</button>'
+        cadena += '</div>'
+        cadena += '<script>'
+        cadena += '$("#euB").on("click",function(){'
+        cadena += 'let nick=$("#nick").val();'
+        cadena += 'rest.eliminarUsuario(nick,function(res){'
+        cadena += '$("#auForm").html(`<div><p>el usuario ` + nick + ` ha sido eliminado? </p>` + JSON.stringify(res[nick]) + `</div>`);'
+        cadena += '});'
         cadena += '});'
         cadena += '</script>'
         $("#auForm").html(cadena);
