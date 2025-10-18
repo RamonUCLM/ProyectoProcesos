@@ -30,12 +30,13 @@ function ClienteRest(){
 
         });
     }
-    this.obtenerUsuarios=function(){
+    this.obtenerUsuarios=function(callback){
         $.ajax({
             type:'GET',
             url:'/obtenerUsuarios',
             success:function(data){
                 console.log("Lista de usuarios obtenida" + JSON.stringify(data));
+                callback(data);
             },
             error:function(xhr, textStatus, errorThrown){
                 console.log("Status: " + textStatus);
@@ -45,12 +46,13 @@ function ClienteRest(){
 
         });
     }
-    this.numeroUsuarios=function(){
+    this.numeroUsuarios=function(callback){
         $.ajax({
             type:'GET',
             url:'/numeroUsuarios',
             success:function(data){
                 console.log("Hay registrados " + JSON.stringify(data) + " usuarios en el sistema");
+                callback(data);
             },
             error:function(xhr, textStatus, errorThrown){
                 console.log("Status: " + textStatus);
@@ -60,16 +62,18 @@ function ClienteRest(){
 
         });
     }
-    this.usuarioActivo=function(nick){
+    this.usuarioActivo=function(nick, callback){
         $.ajax({
             type:'GET',
             url:'/usuarioActivo/'+nick,
             success:function(data){
                 if (data.res==true){
                     console.log("El usuario "+nick+" está activo");
+                    callback(data);
                 }
                 else{
                     console.log("El usuario "+nick+" no está activo");
+                    callback(data);
                 }
             },
             error:function(xhr, textStatus, errorThrown){
@@ -80,16 +84,18 @@ function ClienteRest(){
 
         });
     }
-    this.eliminarUsuario=function(nick){
+    this.eliminarUsuario=function(nick, callback){
         $.ajax({
             type:'GET',
             url:'/eliminarUsuario/'+nick,
             success:function(data){
                 if (data[nick]==true){
                     console.log("El usuario "+nick+" se ha eliminado correctamente");
+                    callback(data);
                 }
                 else{
                     console.log("El usuario "+nick+" no se ha podido eliminar");
+                    callback(data);
                 }
             },
             error:function(xhr, textStatus, errorThrown){

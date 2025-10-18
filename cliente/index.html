@@ -19,14 +19,59 @@
         <title>PLACEHOLDER TITLE</title>
     </head>
     <body>
-        <div id="auForm"></div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#"><img src="Logo.png" alt="Logo" style="width:40px;"></a>
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button id="navAU" type="button" class="btn text-white">Añadir usuario</button>
+                </li>
+                <li class="nav-item">
+                    <button id="navU" type="button" class="btn text-white">Usuarios</button>
+                </li>
+                <li class="nav-item">
+                    <button id="navUA" type="button" class="btn text-white">Usuarios activos</button>
+                </li>
+                <li class="nav-item">
+                    <button id="navBU" type="button" class="btn text-white">Buscar usuario</button>
+                </li>
+                <li class="nav-item">
+                    <button id="navEU" type="button" class="btn text-white">Eliminar usuario</button>
+                </li>
+            </ul>
+        </nav>
+        <div class="container-fluid text-center mt-3">
+            <h3>Arquitectura Base</h3>
+            <div class="row">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-2"><div id="Form"></div></div>
+                <div class="col-sm-5"></div>
+            </div>
+        </div>
+        
 
         <script src="cliente/clienteRest.js"></script>
         <script src="cliente/controlWeb.js"></script>
         <script>
             rest=new ClienteRest();
             cw=new ControlWeb();
-            cw.mostrarAgregarUsuario();
+            $("#navAU").on("click",function(){
+                cw.mostrarAgregarUsuario();
+            });
+            $("#navU").on("click",function(){
+                cw.mostrarObtenerUsuarios();
+            });
+            $("#navUA").on("click",function(){
+                cw.numeroUsuarios();
+            });
+            $("#navBU").on("click",function(){
+                cw.mostrarUsuarioActivo();
+            });
+            $("#navEU").on("click",function(){
+                cw.mostrarEliminarUsuario();
+            });
         </script>
     </body>
 </html>
