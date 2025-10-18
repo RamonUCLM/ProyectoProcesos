@@ -30,12 +30,13 @@ function ClienteRest(){
 
         });
     }
-    this.obtenerUsuarios=function(){
+    this.obtenerUsuarios=function(callback){
         $.ajax({
             type:'GET',
             url:'/obtenerUsuarios',
             success:function(data){
                 console.log("Lista de usuarios obtenida" + JSON.stringify(data));
+                callback(data);
             },
             error:function(xhr, textStatus, errorThrown){
                 console.log("Status: " + textStatus);
